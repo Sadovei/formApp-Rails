@@ -1,0 +1,40 @@
+<h1>Sigh Up</h1>
+
+<%= form_with model: @person, data: { turbo: false }, url: sign_up_path do |form| %>
+    <% if form.object.errors.any? %>
+        <div class="alert alert-danger">
+            <% form.object.errors.full_messages.each do |message| %>
+                <div><%= message %></div>
+            <% end %> 
+        </div>
+    <% end %>
+    
+    <div class="d-flex flex-column mb-3">
+        <%= form.label :firstName %>
+        <%= form.text_field :firstName %>
+    </div>
+
+    <div class="d-flex flex-column mb-3">
+        <%= form.label :lastName %>
+        <%= form.text_field :lastName %>
+    </div>
+
+    <div class="d-flex flex-column mb-3">
+        <%= form.label :email %>
+        <%= form.text_field :email, placeholder: "name@domain.com"%>
+    </div>
+
+    <div class="d-flex flex-column mb-3">
+        <%= form.label :password %>
+        <%= form.password_field  :password, placeholder: "password" %>
+    </div>
+
+    <div class="d-flex flex-column mb-3">
+        <%= form.label :password_confirmation %>
+        <%= form.password_field  :password_confirmation, placeholder: "password" %>
+    </div>
+
+    <div class="mb-3">
+        <%= form.submit %>
+    </div>
+<% end %>

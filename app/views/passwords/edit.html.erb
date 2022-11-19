@@ -1,0 +1,17 @@
+<h1>Sigh Up</h1>
+
+<%= form_with model: Current.person, data: { turbo: false }, url: edit_password_path do |form| %>
+    <div class="d-flex flex-column mb-3">
+        <%= form.label :password %>
+        <%= form.password_field  :password, placeholder: "password" %>
+    </div>
+
+    <div class="d-flex flex-column mb-3">
+        <%= form.label :password_confirmation %>
+        <%= form.password_field  :password_confirmation, placeholder: "password" %>
+    </div>
+
+    <div class="mb-3">
+        <%= form.submit %>
+    </div>
+<% end %>
